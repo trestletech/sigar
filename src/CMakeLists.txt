@@ -97,6 +97,8 @@ SET(SIGAR_SRC ${SIGAR_SRC}
   sigar_util.c
 )
 
+ADD_LIBRARY(sigarStatic STATIC ${SIGAR_SRC})
+SET_TARGET_PROPERTIES(sigarStatic PROPERTIES OUTPUT_NAME sigar_static)
 ADD_LIBRARY(sigar SHARED ${SIGAR_SRC})
 IF(WIN32)
 	TARGET_LINK_LIBRARIES(sigar ws2_32 netapi32 version)
